@@ -1283,6 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e14a5e120adc9b419a6faa136e2ac37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitVFXPrefab: {fileID: 1409886019462984128, guid: c50a904d08a23904c95abc050f3030ae, type: 3}
   animator: {fileID: 870723999}
   muzzleFlash: {fileID: 4400167803209438754}
   damageAmount: 1
@@ -1443,7 +1444,7 @@ PrefabInstance:
     - target: {fileID: 2725930214232808722, guid: 19296b2afab2d5e4fb1f3b34d10b3233, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: f1b0fea076fb0574d868f6e3d9523f52, type: 2}
+      objectReference: {fileID: 2100000, guid: 3209e64d6bb76c54eb3be2be5f87be5b, type: 2}
     - target: {fileID: 6285170363250642702, guid: 19296b2afab2d5e4fb1f3b34d10b3233, type: 3}
       propertyPath: m_Name
       value: Muzzle Flash
@@ -1575,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526498698292288996, guid: dc73514e23fcf7241a099b84e7a34945, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.184
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 4526498698292288996, guid: dc73514e23fcf7241a099b84e7a34945, type: 3}
       propertyPath: m_LocalPosition.z
