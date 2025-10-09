@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] int damage = 1;
+    [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] int damageAmount = 1;
     StarterAssetsInputs starterAssetsInputs;
+
+    const string SHOOT_STRING = "Shoot";
 
     private void Awake()
     {
@@ -19,18 +23,18 @@ public class Weapon : MonoBehaviour
     void HandleShoot()
     {
         if (!starterAssetsInputs.shoot) return;
-        
+
+        muzzleFlash.Play();
+        animator.Play(SHOOT_STRING, 0, 0f);
+
+        starterAssetsInputs.ShootInput(false);
+
         RaycastHit hit;
 
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            enemyHealth?.TakeDamage(damage);
-             //if (enemyHealth)
-             //{
-             //    enemyHealth.TakeDamage(damage);
-             //}
-            starterAssetsInputs.ShootInput(false);
+            enemyHealth?.TakeDamage(damageAmount); // if enemyHealth is not null, invoke TakeDamage
         }
     }
 }
