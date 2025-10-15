@@ -47,6 +47,11 @@ public class ActiveWeapon : MonoBehaviour
     {
         currentAmmo += amount;
 
+        if(currentAmmo > currentWeaponSO.MagazineSize)
+        {
+            currentAmmo = currentWeaponSO.MagazineSize;
+        }
+
         ammoText.text = currentAmmo.ToString("D2");
     }
 
@@ -60,6 +65,7 @@ public class ActiveWeapon : MonoBehaviour
         Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
         currentWeapon = newWeapon;
         this.currentWeaponSO = weaponSO;
+        AdjustAmmo(currentWeaponSO.MagazineSize);
     }
 
     void HandleShoot()
