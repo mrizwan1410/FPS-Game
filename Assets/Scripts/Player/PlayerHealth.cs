@@ -1,9 +1,14 @@
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int startingHealth = 5;
+    [SerializeField] CinemachineVirtualCamera deathVirtualCamera;
+    [SerializeField] Transform weaponCamera;
+
     int currentHealth;
+    int gameOverVirtualCameraPriority = 20;
 
     private void Awake()
     {
@@ -17,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            weaponCamera.parent = null;
+            deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
             Destroy(this.gameObject);
         }
     }
