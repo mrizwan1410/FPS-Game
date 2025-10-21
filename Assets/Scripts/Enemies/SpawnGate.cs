@@ -7,13 +7,16 @@ public class SpawnGate : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     [SerializeField] float spawnTime = 5f;
 
+    PlayerHealth player;
+
     void Start()
     {
+        player = FindFirstObjectByType<PlayerHealth>();
         StartCoroutine(SpawnRoutine());
     }
     IEnumerator SpawnRoutine()
     {
-        while(true)
+        while(player)
         {
             Instantiate(robotPrefab, spawnPoint.position, transform.rotation);
             yield return new WaitForSeconds(spawnTime);
