@@ -9,8 +9,11 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform projectileSpawnPoint;    
     [SerializeField] float fireRate = 2f;
 
+    PlayerHealth player;
+
     void Start()
     {
+        player = FindFirstObjectByType<PlayerHealth>();
         StartCoroutine(FireRoutine());
     }
 
@@ -21,7 +24,7 @@ public class Turret : MonoBehaviour
 
     IEnumerator FireRoutine()
     {
-        while(true)
+        while(player)
         {
             yield return new WaitForSeconds(fireRate);
             Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
