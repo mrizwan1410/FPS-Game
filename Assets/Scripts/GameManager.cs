@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text enemiesLeftText;
+    [SerializeField] GameObject youWinText;
 
     int enemiesLeft = 0;
     const string ENEMY_LEFT_STRING = "Enemies Left: ";
@@ -12,6 +13,11 @@ public class GameManager : MonoBehaviour
     {
         enemiesLeft += amount;
         enemiesLeftText.text = ENEMY_LEFT_STRING + enemiesLeft.ToString();
+
+        if(enemiesLeft <= 0)
+        {
+            youWinText.SetActive(true);
+        }
     }
     public void RestartLevelButton()
     {
