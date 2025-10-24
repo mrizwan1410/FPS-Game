@@ -12,12 +12,12 @@ public class GameManager : MonoBehaviour
     public void AdjustEnemiesLeft(int amount)
     {
         enemiesLeft += amount;
-        enemiesLeftText.text = ENEMY_LEFT_STRING + enemiesLeft.ToString();
 
         if(enemiesLeft <= 0)
         {
             youWinText.SetActive(true);
         }
+        enemiesLeftText.text = ENEMY_LEFT_STRING + enemiesLeft.ToString();
     }
     public void RestartLevelButton()
     {
