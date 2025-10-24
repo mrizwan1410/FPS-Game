@@ -8,16 +8,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject youWinText;
 
     int enemiesLeft = 0;
-    const string ENEMY_LEFT_STRING = "Enemies Left: ";
+
+    const string ENEMIES_LEFT_STRING = "Enemies Left: ";
     public void AdjustEnemiesLeft(int amount)
     {
         enemiesLeft += amount;
+        enemiesLeftText.text = ENEMIES_LEFT_STRING + enemiesLeft.ToString();
 
         if(enemiesLeft <= 0)
         {
             youWinText.SetActive(true);
         }
-        enemiesLeftText.text = ENEMY_LEFT_STRING + enemiesLeft.ToString();
     }
     public void RestartLevelButton()
     {
